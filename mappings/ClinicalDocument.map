@@ -70,7 +70,7 @@ group ClinicalDocumentComposition(source source : ClinicalDocument, target targe
     };
   };
   source.relatedDocument as relatedDoc -> target.relatesTo as relates then {
-    relatedDoc.typeCode -> relates.code;
+    // relatedDoc.typeCode -> relates.code; // TODO FIXME
     relatedDoc.parentDocument as parentDoc then {
       parentDoc.setId -> relates.targetIdentifier;
     } "parentDoc";

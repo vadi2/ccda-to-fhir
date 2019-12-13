@@ -18,7 +18,7 @@ group AllergyIntolerance(source source : Act, source patient : Patient, target b
   source.templateId as template then TemplateID(template, allergy) "templateID";
   source.id -> allergy.identifier;
   source.statusCode -> allergy.clinicalStatus;
-  source.effectiveTime as effectiveTime -> allergy.onset;
+  // source.effectiveTime as effectiveTime -> allergy.onset; // TODO FIXME
   patient -> allergy.patient = reference(patient) "patient"; // We can only handle the first author
   source.author as author then {
     author.time -> allergy.assertedDate;
